@@ -26,7 +26,7 @@ public class RestController {
 	@RequestMapping(value = "/getCarrier" ,method=RequestMethod.POST)
 	public @ResponseBody String getCarrier(@RequestBody String reqJson) throws JsonMappingException, JsonProcessingException
 	{
-		String message=null;
+		String message="";
 		
 		CarrierReq carrierJson=objmapper.readValue(reqJson, CarrierReq.class);
 		
@@ -40,15 +40,16 @@ public class RestController {
 			}
 			else
 			{
-				message="not found";
+				message="Carrier not found";
 			}
 			
 		}
 		else
 		{
-			message="not found";
+			message="Carrier not found";
 		}
 		return message;
 	}
 
 }
+
